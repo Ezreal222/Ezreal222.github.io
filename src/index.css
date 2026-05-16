@@ -1,0 +1,143 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: #0a0b14;
+    color: #f1f5f9;
+    font-family: 'Inter', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    position: relative;
+    overflow-x: hidden;
+  }
+
+  /* Grain overlay — SVG turbulence, above aurora to add film texture */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 3;
+    opacity: 0.1;
+    mix-blend-mode: soft-light;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    background-size: 220px 220px;
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #0a0b14;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(to bottom, #a855f7, #5eead4);
+    border-radius: 3px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #c084fc;
+  }
+
+  ::selection {
+    background: rgba(168, 85, 247, 0.3);
+    color: #f1f5f9;
+  }
+}
+
+@layer components {
+  /* Editorial section header pattern */
+  .section-eyebrow {
+    @apply font-mono text-xs uppercase tracking-[0.2em] text-teal/80;
+  }
+
+  .section-title {
+    @apply font-serif italic text-4xl md:text-5xl lg:text-6xl text-text-primary leading-[1.05] tracking-tight;
+  }
+
+  .section-title-accent {
+    @apply font-serif italic text-accent;
+  }
+
+  /* Legacy classes — still used by some components, kept for compatibility */
+  .section-heading {
+    @apply font-serif italic text-4xl md:text-5xl text-text-primary leading-tight;
+  }
+
+  .section-subline {
+    @apply font-mono text-xs uppercase tracking-[0.2em] text-teal/80 mb-4;
+  }
+
+  .card {
+    @apply bg-surface/60 border border-[#1f1f28] rounded-2xl p-6 transition-all duration-300 backdrop-blur-sm;
+  }
+
+  .card:hover {
+    border-color: rgba(168, 85, 247, 0.45);
+    box-shadow: 0 0 30px rgba(168, 85, 247, 0.08), 0 0 60px rgba(94, 234, 212, 0.04);
+  }
+
+  .btn-primary {
+    @apply bg-accent text-white font-medium px-6 py-3 rounded-lg transition-all duration-300;
+    box-shadow: 0 0 15px rgba(168, 85, 247, 0.3);
+  }
+
+  .btn-primary:hover {
+    @apply bg-purple-400;
+    box-shadow: 0 0 30px rgba(168, 85, 247, 0.55);
+    transform: translateY(-1px);
+  }
+
+  .btn-outline {
+    @apply border border-teal/60 text-teal font-medium px-6 py-3 rounded-lg transition-all duration-300;
+  }
+
+  .btn-outline:hover {
+    border-color: rgba(94, 234, 212, 1);
+    background: rgba(94, 234, 212, 0.08);
+    box-shadow: 0 0 20px rgba(94, 234, 212, 0.25);
+  }
+
+  .skill-badge {
+    @apply font-mono bg-surface/40 border border-[#1f1f28] text-text-muted text-[11px] tracking-wide px-2.5 py-1 rounded-md transition-colors duration-200;
+  }
+
+  .skill-badge:hover {
+    border-color: rgba(94, 234, 212, 0.5);
+    @apply text-teal;
+  }
+
+  /* Mono meta label — used for hero eyebrow, section numbers, timestamps */
+  .mono-meta {
+    @apply font-mono text-[11px] uppercase tracking-[0.25em] text-text-muted;
+  }
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .animate-drift-a,
+  .animate-drift-b,
+  .animate-drift-c,
+  .animate-pulse-glow,
+  .animate-teal-glow {
+    animation: none !important;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
