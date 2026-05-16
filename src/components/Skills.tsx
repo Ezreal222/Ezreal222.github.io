@@ -9,6 +9,7 @@ const categoryIcons: Record<string, string> = {
   'Backend & DB': '⬡',
   'AI / ML': '◎',
   'Cloud & Infrastructure': '☁',
+  Blockchain: '◆',
   Tools: '⚙',
 }
 

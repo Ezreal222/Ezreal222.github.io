@@ -72,28 +72,28 @@ export type Project = {
 
 export const projects: Project[] = [
   {
-    name: 'Research Paper Summarizer',
+    name: 'MiniVault — Crypto-Collateralized Stablecoin',
     description:
-      'Team-built serverless AWS platform that searches arXiv and Semantic Scholar, fetches PDFs, and produces structured five-section summaries with RAG chat and an auto-extracted knowledge graph. ~30s end-to-end, ~$0.20 per paper, $0 idle. My ownership: Search Lambda, arXiv client, and integration tests.',
-    tech: ['TypeScript', 'Next.js', 'AWS Lambda', 'Step Functions', 'DynamoDB', 'S3', 'CloudFront', 'API Gateway', 'Cognito', 'Bedrock', 'CDK'],
-    date: 'Spring 2026',
-    github: 'https://github.com/pmxlr8/research-summarizer',
-    liveDemo: 'https://d24irdkbe9jj2b.cloudfront.net/',
-  },
-  {
-    name: 'MiniVault',
-    description:
-      'Crypto-collateralized stablecoin system on Ethereum Sepolia. Lock ETH, mint a USD-pegged mUSD up to 150% collateralization, repay, withdraw, and liquidate underwater positions. Backed by a live Chainlink ETH/USD feed and guarded by a custom same-block oracle circuit breaker that pauses minting on >5% intra-block moves.',
-    tech: ['Solidity', 'Hardhat', 'Chainlink', 'ethers v6', 'React', 'Vite', 'TypeScript', 'Tailwind'],
+      'Three Etherscan-verified contracts (MiniUSD, OracleAdapter, Vault) on Ethereum Sepolia supporting deposit, mint, repay, withdraw, and liquidation against a live Chainlink ETH/USD feed at 150% collateralization. Engineered a same-block oracle circuit breaker halting minting on >5% intra-block price divergence (cf. Mango Markets, 2022); validated with a 33-case Hardhat test suite and a React + ethers.js frontend.',
+    tech: ['Solidity', 'Hardhat', 'Chainlink', 'OpenZeppelin', 'ethers.js', 'TypeChain', 'React', 'Vite', 'TypeScript', 'Tailwind'],
     date: 'Spring 2026',
     github: 'https://github.com/Ezreal222/minivault',
     liveDemo: 'https://ezreal222.github.io/minivault/',
   },
   {
+    name: 'Research Paper Summarizer',
+    description:
+      'Owned the Search Lambda on a 4-person team — an arXiv API client with parallel querying, paging, retry, and Cognito-authorized API Gateway routing, deduplicated with Semantic Scholar and tested in vitest. Also built the ops layer (CloudWatch dashboard, SNS alarms, X-Ray tracing across the Step Functions pipeline); helped land a v1.0 release at ~30s per summary, ~$0.20 per paper, $0 idle.',
+    tech: ['TypeScript', 'Next.js', 'AWS Lambda', 'API Gateway', 'Step Functions', 'SQS', 'DynamoDB', 'S3', 'CloudFront', 'Cognito', 'Bedrock', 'CloudWatch', 'X-Ray', 'CDK'],
+    date: 'Spring 2026',
+    github: 'https://github.com/pmxlr8/research-summarizer',
+    liveDemo: 'https://d24irdkbe9jj2b.cloudfront.net/',
+  },
+  {
     name: 'Dining Concierge Chatbot',
     description:
-      'Serverless restaurant recommendation pipeline serving 1,300+ Manhattan restaurants. Architected across 9 AWS services with DynamoDB-backed state persistence for returning users.',
-    tech: ['Python', 'JavaScript', 'AWS Lambda', 'AWS Lex', 'DynamoDB', 'OpenSearch', 'SQS', 'S3', 'SES'],
+      'Architected a serverless pipeline across 9 AWS services delivering personalized restaurant recommendations from 1,300+ Manhattan restaurants, with DynamoDB-backed state persistence across 5 conversational intents so returning users could retrieve previous dining preferences.',
+    tech: ['Python', 'JavaScript', 'AWS Lambda', 'API Gateway', 'AWS Lex', 'DynamoDB', 'OpenSearch', 'SQS', 'S3', 'SES', 'Yelp Fusion API'],
     date: 'Spring 2026',
     github: 'https://github.com/Ezreal222',
   },
@@ -126,11 +126,11 @@ export const projects: Project[] = [
 export const skills = [
   {
     category: 'Languages',
-    items: ['Python', 'C++', 'Java', 'JavaScript', 'TypeScript', 'Scala', 'SQL', 'R', 'C', 'HTML/CSS'],
+    items: ['C++', 'Python', 'Java', 'JavaScript', 'TypeScript', 'Scala', 'Solidity', 'SQL', 'R', 'C', 'HTML/CSS'],
   },
   {
     category: 'Frontend',
-    items: ['React', 'WebGL', 'OpenGL', 'Bootstrap', 'Tailwind CSS'],
+    items: ['React', 'Next.js', 'WebGL', 'OpenGL', 'Tailwind CSS', 'Bootstrap'],
   },
   {
     category: 'Backend & DB',
@@ -142,7 +142,11 @@ export const skills = [
   },
   {
     category: 'Cloud & Infrastructure',
-    items: ['AWS Lambda', 'AWS S3', 'API Gateway', 'DynamoDB', 'OpenSearch', 'SQS', 'SES', 'Serverless'],
+    items: ['AWS Lambda', 'API Gateway', 'Step Functions', 'SQS', 'S3', 'DynamoDB', 'OpenSearch', 'CloudFront', 'Cognito', 'Bedrock', 'CloudWatch', 'X-Ray', 'Lex', 'SES', 'AWS CDK', 'Serverless'],
+  },
+  {
+    category: 'Blockchain',
+    items: ['Hardhat', 'ethers.js', 'Chainlink', 'OpenZeppelin', 'TypeChain'],
   },
   {
     category: 'Tools',
