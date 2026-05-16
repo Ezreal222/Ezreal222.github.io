@@ -68,6 +68,12 @@ export default function Hero() {
           <div className="flex flex-col gap-1">
             <h1 className="font-sans text-5xl md:text-6xl lg:text-7xl font-semibold text-text-primary leading-[0.95] tracking-tight">
               Yang Zheng<span className="text-accent">.</span>
+              <span
+                lang="zh-Hans"
+                className="ml-3 md:ml-4 text-2xl md:text-3xl lg:text-4xl font-normal text-text-muted/70 tracking-normal"
+              >
+                郑洋
+              </span>
             </h1>
             <div className="flex items-baseline gap-2 mt-3">
               <span className="font-serif italic text-2xl md:text-3xl text-teal">/</span>
