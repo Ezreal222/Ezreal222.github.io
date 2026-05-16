@@ -7,6 +7,7 @@ import { fadeUp, stagger, revealUp, useMagneticHover } from '../hooks/animations
 function ProjectCard({ project, index }: { project: Project; index: number }) {
   const magnetic = useMagneticHover(10)
   const num = String(index + 1).padStart(2, '0')
+  const hasAnyLink = Boolean(project.liveDemo || project.github)
 
   return (
     <motion.div
@@ -34,21 +35,25 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
               <FiExternalLink size={16} />
             </a>
           )}
-          <a
-            href={project.github}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-text-muted hover:text-teal transition-colors"
-            aria-label="GitHub repo"
-            title="GitHub repo"
-            onClick={e => e.stopPropagation()}
-          >
-            <FiGithub size={16} />
-          </a>
-          <FiArrowUpRight
-            size={18}
-            className="text-text-muted group-hover:text-teal group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all"
-          />
+          {project.github && (
+            <a
+              href={project.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-text-muted hover:text-teal transition-colors"
+              aria-label="GitHub repo"
+              title="GitHub repo"
+              onClick={e => e.stopPropagation()}
+            >
+              <FiGithub size={16} />
+            </a>
+          )}
+          {hasAnyLink && (
+            <FiArrowUpRight
+              size={18}
+              className="text-text-muted group-hover:text-teal group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all"
+            />
+          )}
         </div>
       </div>
 
