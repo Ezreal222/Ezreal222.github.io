@@ -42,6 +42,15 @@ export const education = [
 
 export const experience = [
   {
+    role: 'Teaching Assistant — Algorithms',
+    company: 'NYU Courant Institute of Mathematical Sciences',
+    dates: 'May – Aug 2025',
+    bullets: [
+      'Held weekly office hours and review sessions for CSCI-UA 310 undergraduates, fielding questions on mathematical proofs of algorithm correctness, LeetCode-style problem solving, and final exam preparation.',
+      'Guided students through divide-and-conquer, greedy algorithms, dynamic programming, graph algorithms, and NP-completeness; reinforced rigorous proof techniques (induction, exchange arguments, reductions).',
+    ],
+  },
+  {
     role: 'Research Assistant',
     company: 'Robotics and Automation Laboratory, Tsinghua University',
     dates: 'June – Aug 2023',
